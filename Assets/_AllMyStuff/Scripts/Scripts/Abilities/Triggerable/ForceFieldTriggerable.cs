@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ForceFieldTriggerable : AbilityBaseTriggerable
 {
+    // add todo: change these fields to be private set public get
     [HideInInspector]
     public float UpForce = 1;
     [HideInInspector]
@@ -23,12 +24,12 @@ public class ForceFieldTriggerable : AbilityBaseTriggerable
         base.Initialize(_name, _damage, _timeToLive, _baseCooldown, _buttonImage);
     }
 
-    public override void TriggerAbility(AbilityController parent)
+    public override void TriggerAbility(Vector3 source, Vector3 destination)
     {
-       GameObject go = PlayerController.Instantiate(Prefab, parent.transform.position, parent.transform.rotation);
+       GameObject go = AbilityController.Instantiate(Prefab, destination, Quaternion.Euler(0, 0, 0));
        ForceField ff = go.GetComponent<ForceField>();
        ff.Initialize(Damage, Radius, HitForce, TimeToLive, UpForce);
         
-        base.TriggerAbility(parent);
+        base.TriggerAbility(source, destination);
     }
 }
