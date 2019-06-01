@@ -60,16 +60,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\AbilityBaseScriptableObject.cs" />
-    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Attributes.cs" />
-    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\ForceFieldAbilityScriptableObject.cs" />
-    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Skills.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\AbilityBaseScriptableObject.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\Attributes.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\ForceFieldAbilityScriptableObject.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\LaserAbilityScriptableObject.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\Skills.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\AbilityController.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\ForceField.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Laser.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Pickupable\BasePickupable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Pickupable\ForceFieldPickupable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\AbilityBaseTriggerable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\ForceFieldTriggerable.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\LaserTriggerable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\General\LookAt.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\General\MoveTowardsGameObject.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Health.cs" />

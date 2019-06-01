@@ -26,10 +26,10 @@ public class ForceFieldTriggerable : AbilityBaseTriggerable
 
     public override void TriggerAbility(Vector3 source, Vector3 destination)
     {
-       GameObject go = AbilityController.Instantiate(Prefab, destination, Quaternion.Euler(0, 0, 0));
-       ForceField ff = go.GetComponent<ForceField>();
-       ff.Initialize(Damage, Radius, HitForce, TimeToLive, UpForce);
-        
+        GameObject go = AbilityController.Instantiate(Prefab, destination, Quaternion.Euler(0, 0, 0));
+        ForceField ff = go.GetComponent<ForceField>();
+        ff.Initialize(Damage, Radius, HitForce, TimeToLive, UpForce);
+         
         base.TriggerAbility(source, destination);
     }
 }

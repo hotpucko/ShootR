@@ -21,11 +21,11 @@ public class ForceField : MonoBehaviour
         transform.localScale = new Vector3(2 * radius, 2 * radius, 2 * radius);
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.radius = 0.5f;
-        onAwake();
+        OnAwake();
     }
 
     // Start is called before the first frame update
-    void onAwake()
+    void OnAwake()
     {
         Collider[] allOverlappingColliders = Physics.OverlapSphere(transform.position, sphereCollider.radius * transform.localScale.x);
         foreach (Collider coll in allOverlappingColliders)
