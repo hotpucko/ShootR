@@ -20,31 +20,39 @@ public class AbilityController : MonoBehaviour
     
     private void Start()
     {
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    abilities[i] = new ForceFieldAbilityScriptableObject();
-        //}
-        //for (int i = 0; i < abilities.Length; i++)
-        //{
-        //    if(abilities[i] != null)
-        //        addAbility(abilities[i], i);
-        //}
-        //addAbility(ability1, 0);
-        //addAbility(ability2, 1);
-        //addAbility(ability3, 2);
-        //addAbility(ability4, 3);
+
     }
 
     void Update()
     {
         isColliding = false;
+        UpdateCooldowns();
+        CheckForInput();
+    }
+
+    private void CheckForInput()
+    {
+        for (int i = 0; i < abilityButtonAxisName.Length; i++)
+        {
+            if (Input.GetAxis(abilityButtonAxisName[i]) > 0)
+            {
+                if (abilities[i] != null)
+                {
+                    useAbility(i);
+                }
+            }
+        }
+    }
+
+    private void UpdateCooldowns()
+    {
         for (int i = 0; i < abilities.Length; i++)
         {
             if (abilities[i] != null)
             {
                 abilities[i].UpdateCooldowns(darkMask[i]);
 
-                if(abilities[i].CanBeCast)
+                if (abilities[i].CanBeCast)
                 {
                     darkMask[i].enabled = false;
                     cooldownTextDisplay[i].text = abilities[i].Name;
@@ -57,17 +65,6 @@ public class AbilityController : MonoBehaviour
                 }
             }
         }
-
-        for (int i = 0; i < abilityButtonAxisName.Length; i++)
-        {
-            if(Input.GetAxis(abilityButtonAxisName[i]) > 0)
-            {
-                if(abilities[i] != null)
-                {
-                    useAbility(i);
-                }
-            }
-        }
     }
 
     public void AddAbility(AbilityBaseTriggerable ability, int slot)
@@ -77,7 +74,6 @@ public class AbilityController : MonoBehaviour
         abilityIconGO[slot].sprite = abilities[slot].ButtonImage;
         darkMask[slot].sprite = abilities[slot].DarkMask;
         abilities[slot].SetLinks(cooldownTextDisplay[slot]);
-        //abilities[slot].Initialize();
     }
 
     public void ClearAbilities()
