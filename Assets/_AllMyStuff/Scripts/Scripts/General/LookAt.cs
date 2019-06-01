@@ -5,12 +5,13 @@ using UnityEngine;
 public class LookAt : MonoBehaviour
 {
 
-    [SerializeField]
-    Transform target;
+    [SerializeField] Transform target;
+    [SerializeField] Vector3 offset;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.LookAt(target);
+        transform.Rotate(offset);
     }
 }
