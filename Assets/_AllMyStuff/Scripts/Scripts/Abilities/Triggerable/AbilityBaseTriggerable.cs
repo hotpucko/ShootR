@@ -37,10 +37,11 @@ public class AbilityBaseTriggerable
         DarkMask = _buttonImage;
     }
 
-    public virtual void UpdateCooldowns(Image darkMask)
+    public virtual void UpdateCooldowns()
     {
         cooldownComplete = (Time.time > nextReadyTime);
-        cooldownTimeLeft -= Time.time;
+        Debug.Log(nextReadyTime - Time.time);
+        cooldownTimeLeft = nextReadyTime - Time.time;
         if (cooldownComplete && !prevCooldownComplete)
         {
             CanBeCast = true;
@@ -53,7 +54,7 @@ public class AbilityBaseTriggerable
         prevCooldownComplete = cooldownComplete;
     }
 
-    public virtual void TriggerAbility(AbilityController parent)
+    public virtual void TriggerAbility(Vector3 source, Vector3 destination)
     {
         nextReadyTime = Time.time + BaseCooldown;
         cooldownTimeLeft = BaseCooldown;
@@ -61,13 +62,7 @@ public class AbilityBaseTriggerable
         CanBeCast = false;
     }
 
-    public virtual void ClearAttachedGameObjects()
-    {
-        cooldownTextDisplay = null;
-    }
-    
-    public virtual void SetLinks(Text cooldownTextDisplay)
-    {
-        this.cooldownTextDisplay = cooldownTextDisplay;
-    }
+    public virtual void ClearAttachedGameObjects() => cooldownTextDisplay = null;
+
+    public virtual void SetLinks(Text cooldownTextDisplay) => this.cooldownTextDisplay = cooldownTextDisplay;
 }

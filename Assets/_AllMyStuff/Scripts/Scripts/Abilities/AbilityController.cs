@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AbilityController : MonoBehaviour
 {
-    AbilityBaseTriggerable[] abilities = new AbilityBaseTriggerable[4]; //list of abilities
+    public AbilityBaseTriggerable[] abilities = new AbilityBaseTriggerable[4]; //list of abilities
     [SerializeField] Image[] abilityIconGO = new Image[4];
     [SerializeField] Sprite DefaultIcon;
     [SerializeField] Image[] darkMask = new Image[4]; //the dark cooldown mask on top of the ability icon
@@ -16,6 +16,7 @@ public class AbilityController : MonoBehaviour
         "AbilityE",
         "AbilityR"
     };
+    [SerializeField] LayerMask AbilityTargetMask;
     private bool isColliding = false; //a variable to keep track of if the player has collided this frame with a pickupable
     
     private void Start()
@@ -38,7 +39,7 @@ public class AbilityController : MonoBehaviour
             {
                 if (abilities[i] != null)
                 {
-                    useAbility(i);
+                    UseAbility(i);
                 }
             }
         }
@@ -50,7 +51,6 @@ public class AbilityController : MonoBehaviour
         {
             if (abilities[i] != null)
             {
-                abilities[i].UpdateCooldowns(darkMask[i]);
 
                 if (abilities[i].CanBeCast)
                 {
@@ -59,8 +59,9 @@ public class AbilityController : MonoBehaviour
                 }
                 else
                 {
+                    abilities[i].UpdateCooldowns();
                     darkMask[i].enabled = true;
-                    cooldownTextDisplay[i].text = abilities[i].cooldownTimeLeft.ToString();//(Mathf.Ceil(abilities[i].cooldownTimeLeft * 10.0f) / 10.0f).ToString(); //rounds to 1 decimal place
+                    cooldownTextDisplay[i].text = (Mathf.Ceil(abilities[i].cooldownTimeLeft * 10.0f) / 10.0f).ToString(); //rounds to 1 decimal place
                     darkMask[i].fillAmount = abilities[i].cooldownTimeLeft / abilities[i].BaseCooldown;
                 }
             }
@@ -97,11 +98,14 @@ public class AbilityController : MonoBehaviour
         darkMask[slot].sprite = DefaultIcon;
     }
 
-    public void useAbility(int slot)
+    public void UseAbility(int slot)
     {
         if(abilities[slot].CanBeCast)
         {
-            abilities[slot].TriggerAbility(this);
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, AbilityTargetMask))
+            {
+                abilities[slot].TriggerAbility(this.transform.position, hit.point);
+            }
         }
     }
 
@@ -109,7 +113,7 @@ public class AbilityController : MonoBehaviour
     {
         if (isColliding == true)
             return;
-        if (other.gameObject.GetComponent<ForceFieldPickupable>() != null)
+        if (other.gameObject.GetComponent<BasePickupable>() != null)
         {
             int firstFreeslot = GetFirstFreeAbilitySlot();
             if(firstFreeslot == -1)
@@ -119,9 +123,9 @@ public class AbilityController : MonoBehaviour
             }
             else
             {
-                Debug.Log("adding ability " + other.gameObject.GetComponent<ForceFieldPickupable>().abilityTriggerable.Name + " to skill slot " + firstFreeslot);
+                Debug.Log("adding ability " + other.gameObject.GetComponent<BasePickupable>().abilityTriggerable.Name + " to skill slot " + firstFreeslot);
                 //System.ObjectExtensions.Copy = deep copy, enables having multiple of the same ability FROM THE SAME SOURCE
-                AddAbility(System.ObjectExtensions.Copy(other.gameObject.GetComponent<ForceFieldPickupable>().abilityTriggerable), firstFreeslot);
+                AddAbility(System.ObjectExtensions.Copy(other.gameObject.GetComponent<BasePickupable>().abilityTriggerable), firstFreeslot);
             }
             Destroy(other.gameObject);
         }
