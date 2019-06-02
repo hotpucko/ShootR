@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ForceField
   m_EditorClassIdentifier: 
   Name: Force Field
-  aSprite: {fileID: 21300000, guid: 91a89c3c0bba8b6469735386ca2630d7, type: 3}
+  aSprite: {fileID: 21300000, guid: 5eb06339d5ad1a34093a10288a5c90c4, type: 3}
   aSound: {fileID: 8300000, guid: 382616a3ff82fe24893f274ebc9289ba, type: 3}
   aBaseCooldown: 1
-  Damage: 1
+  Damage: 10
   TimeToLive: 5
   Radius: 2
   Prefab: {fileID: 1495350848527622887, guid: cd3c3059580ed7848aa1179a49148a88, type: 3}

@@ -41,6 +41,8 @@ public class ForceField : MonoBehaviour
                         enemyCubeController.KnockedUp();
                     }
                     collRB.AddExplosionForce(hitForce, transform.position, sphereCollider.radius * transform.localScale.x, upForce, ForceMode.Impulse);
+                    Health enemyHealth = coll.gameObject.GetComponent<Health>();
+                    enemyHealth.ModifyHealth((int)damage * -1);
                 }
             }
         }
