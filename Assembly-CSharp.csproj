@@ -73,8 +73,8 @@
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\AbilityBaseTriggerable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\ForceFieldTriggerable.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Abilities\Triggerable\LaserTriggerable.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\General\EnemyCubeController.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\General\LookAt.cs" />
-    <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\General\MoveTowardsGameObject.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Health.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Helper.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Player\CameraController.cs" />
