@@ -35,10 +35,10 @@ public class ForceField : MonoBehaviour
                 Rigidbody collRB = coll.GetComponent<Rigidbody>();
                 if(collRB != null)
                 {
-                    MoveTowardsGameObject moveTowardsGameObject = coll.gameObject.GetComponent<MoveTowardsGameObject>();
-                    if (moveTowardsGameObject != null)
+                    EnemyCubeController enemyCubeController = coll.gameObject.GetComponent<EnemyCubeController>();
+                    if (enemyCubeController != null)
                     {
-                        moveTowardsGameObject.KnockedUp();
+                        enemyCubeController.KnockedUp();
                     }
                     collRB.AddExplosionForce(hitForce, transform.position, sphereCollider.radius * transform.localScale.x, upForce, ForceMode.Impulse);
                 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveTowardsGameObject : MonoBehaviour
+public class EnemyCubeController : MonoBehaviour
 {
+    bool disabled = false;
     NavMeshAgent agent;
     public Transform target;
     bool knockedUp = false;
@@ -24,6 +25,9 @@ public class MoveTowardsGameObject : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (disabled)
+            return;
+
         if (!knockedUp)
         {
             agent.SetDestination(target.position);
@@ -61,5 +65,19 @@ public class MoveTowardsGameObject : MonoBehaviour
         agent.enabled = true;
         knockedUp = false;
         agent.SetDestination(target.position);
+    }
+
+    public void Die()
+    {
+        disabled = true;
+        KnockedUp();
+        GetComponent<Collider>().enabled = false;
+        agent.enabled = false;
+        Invoke("DestroyThis", 1);
+    }
+
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
     }
 }

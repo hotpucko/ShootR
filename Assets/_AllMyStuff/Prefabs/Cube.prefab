@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   foregroundImage: {fileID: 236200296636188008}
-  updateSpeedSeconds: 0.5
+  updateSpeedSeconds: 0.2
   canvas: {fileID: 236200297677643270}
   yOffsetFromPlayer: 1
 --- !u!1 &236200297677643325

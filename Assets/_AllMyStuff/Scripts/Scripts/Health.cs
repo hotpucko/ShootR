@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
 
         float currentHealthPct = (float)currentHealth / (float)maxHealth;
         HandleHealthChanged(currentHealthPct);
+        if (currentHealth <= 0)
+            GetComponent<EnemyCubeController>().Die();
     }
 
     void Update()
