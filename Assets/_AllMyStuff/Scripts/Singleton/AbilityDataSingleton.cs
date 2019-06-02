@@ -19,9 +19,11 @@ public class AbilityDataSingleton : Singleton<AbilityDataSingleton>
         switch (ability)
         {
             case ForceFieldTriggerable ff:
+                Debug.Log(FFBase.name + ", " + FFBase.Damage + ", " + FFBase.TimeToLive);
                 ff.OverloadInitialize(FFBase.Name, FFBase.Damage, FFBase.TimeToLive, FFBase.aBaseCooldown, FFBase.aSprite, FFBase.UpForce, FFBase.Radius, FFBase.HitForce, FFBase.Prefab);
                 return ff;
             case LaserTriggerable lt:
+                Debug.Log(LaserBase.name + ", " + LaserBase.Damage + ", " + LaserBase.TimeToLive);
                 lt.OverloadInitialize(LaserBase.name, LaserBase.Damage, LaserBase.TimeToLive, LaserBase.aBaseCooldown, LaserBase.aSprite, LaserBase.HitForce, LaserBase.Color, LaserBase.Prefab, LaserBase.HitMask);
                 return lt;
             default:

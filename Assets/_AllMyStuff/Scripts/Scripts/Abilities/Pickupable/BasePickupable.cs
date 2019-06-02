@@ -8,12 +8,13 @@ public class BasePickupable : MonoBehaviour
     [SerializeField] abilitiesEnum ability;
     [SerializeField] Text AbilityNameText;
 
-    private void Awake()
+    private void Start()
     {
         switch (ability)
         {
             case abilitiesEnum.ForceFieldTriggerable:
                 abilityTriggerable = new ForceFieldTriggerable();
+                Debug.Log(abilityTriggerable.ToString() + ", " + AbilityDataSingleton.Instance.ToString());
                 abilityTriggerable = (ForceFieldTriggerable)AbilityDataSingleton.Instance.SetDefaultValues(abilityTriggerable);
                 
                 break;

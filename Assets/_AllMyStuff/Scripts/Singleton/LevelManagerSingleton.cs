@@ -31,20 +31,20 @@ public class LevelManagerSingleton : Singleton<LevelManagerSingleton>
         switch (state)
         {
             case SpawnState.SPAWNING:
-                Debug.Log("state = spawning");
+                //Debug.Log("state = spawning");
                 LoadSceneAdditive("Wave" + nextWave.ToString());
                 nextWave++;
                 state = SpawnState.WAITING;
                 break;
             case SpawnState.WAITING:
-                Debug.Log("state = waiting");
+                //Debug.Log("state = waiting");
                 enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
                 infoText.text = "There are " + enemiesLeft.Length + " enemies remaining.\nWave " + (nextWave - 1) + "/" + waves;
                 if (enemiesLeft.Length <= 0)
                     state = SpawnState.WAITUSERINPUT;
                 break;
             case SpawnState.WAITUSERINPUT:
-                Debug.Log("state = waituserinput");
+                //Debug.Log("state = waituserinput");
                 if(nextWave > waves)
                 {
                     infoText.text = "Congratulations! you beat all the waves!";
