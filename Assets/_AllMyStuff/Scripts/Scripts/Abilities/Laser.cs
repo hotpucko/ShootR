@@ -10,25 +10,28 @@ public class Laser : MonoBehaviour
     float timeToLive;
     Vector3 destination;
     LayerMask hitMask;
+    Color color;
 
     LineRenderer lr;
 
-    public void Initialize(float damage, float hitForce, float timeToLive, Vector3 destination, LayerMask hitMask)
+    public void Initialize(float damage, float hitForce, float timeToLive, Vector3 destination, LayerMask hitMask, Color color)
     {
         this.damage = damage;
         this.hitForce = hitForce;
         this.timeToLive = timeToLive;
         this.destination = destination;
         this.hitMask = hitMask;
+        this.color = color;
 
         lr = GetComponent<LineRenderer>();
-
+        lr.startColor = color;
+        lr.endColor = color;
         OnAwake();
     }
 
     private void OnAwake()
     {
-        Vector3 offset = new Vector3(0.5f, 0.8f, 0);
+        Vector3 offset = new Vector3(0, 0.8f, 0);
         if (Physics.Raycast(new Ray(transform.position + offset, (destination - transform.position)), out RaycastHit hit, 10, hitMask))
         {
             lr.SetPositions(new Vector3[] { transform.position + new Vector3(0, 0.8f, 0), hit.point });

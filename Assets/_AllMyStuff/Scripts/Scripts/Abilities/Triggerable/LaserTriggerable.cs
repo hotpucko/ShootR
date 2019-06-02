@@ -29,8 +29,8 @@ public class LaserTriggerable : AbilityBaseTriggerable
         //Debug.DrawRay(source, (destination - source).normalized * 100, new Color(255, 0, 0), 2);
         GameObject go = PlayerController.Instantiate(Prefab, source, Quaternion.LookRotation((destination - source).normalized));
         Laser L = go.GetComponent<Laser>();
-        L.Initialize(Damage, HitForce, TimeToLive, destination, HitMask);
-
+        L.Initialize(Damage, HitForce, TimeToLive, destination, HitMask, Color);
+    
         base.TriggerAbility(source, destination);
     }
 }

@@ -7,7 +7,7 @@ public class EnemyCubeController : MonoBehaviour
 {
     bool disabled = false;
     NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     bool knockedUp = false;
     Vector3 lastPosition;
     Vector3 positionDelta => transform.position - lastPosition;
@@ -16,6 +16,7 @@ public class EnemyCubeController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         lastPosition = transform.position;
+        target = GameObject.Find("Player").transform;
     }
     
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class EnemyCubeController : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         agent.enabled = false;
         Invoke("DestroyThis", 1);
+        tag = "Untagged";
     }
 
     private void DestroyThis()

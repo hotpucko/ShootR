@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14d6e3c6e1dfc774c8d6e65cfbddd30e, type: 3}
-  m_Name: Laser
+  m_Name: Green Laser
   m_EditorClassIdentifier: 
-  Name: Laser
+  Name: GreenLaser
   aSprite: {fileID: 21300000, guid: 953a8a81cc4491d418ee5f95d8a605b9, type: 3}
   aSound: {fileID: 0}
   aBaseCooldown: 0.2
   Damage: 30
   TimeToLive: 0.1
   HitForce: 1
-  Color: {r: 0, g: 0, b: 255, a: 1}
+  Color: {r: 0, g: 340.44495, b: 67.266525, a: 1}
   Prefab: {fileID: 9086780794670415460, guid: 82f5abd4f06348d4e8e79d3c52664894, type: 3}
   HitMask:
     serializedVersion: 2

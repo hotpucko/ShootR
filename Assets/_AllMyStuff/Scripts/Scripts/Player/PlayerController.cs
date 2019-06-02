@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     Camera cam;
     public LayerMask movementMask;
 
@@ -14,6 +13,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        cam = Camera.main;
     }
 
     // Update is called once per frame

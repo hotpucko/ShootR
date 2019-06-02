@@ -18,7 +18,7 @@ MonoBehaviour:
   aBaseCooldown: 1
   Damage: 10
   TimeToLive: 5
-  Radius: 2
+  Radius: 3
   Prefab: {fileID: 1495350848527622887, guid: cd3c3059580ed7848aa1179a49148a88, type: 3}
   UpForce: 1
   HitForce: 20
