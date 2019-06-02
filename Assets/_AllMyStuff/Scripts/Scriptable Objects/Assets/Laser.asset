@@ -23,4 +23,4 @@ MonoBehaviour:
   Prefab: {fileID: 9086780794670415460, guid: 82f5abd4f06348d4e8e79d3c52664894, type: 3}
   HitMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 2048

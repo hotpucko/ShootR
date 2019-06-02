@@ -28,21 +28,34 @@ public class Laser : MonoBehaviour
 
     private void OnAwake()
     {
-        if (Physics.Raycast(new Ray(transform.position, (destination - transform.position)), out RaycastHit hit, 10, hitMask))
+        Vector3 offset = new Vector3(0, 0.8f, 0);
+        if (Physics.Raycast(new Ray(transform.position + offset, (destination - transform.position)), out RaycastHit hit, 10, hitMask))
         {
-            lr.SetPositions(new Vector3[] { transform.position, hit.point });
-            if(hit.collider.GetComponent<Health>() != null)
+            lr.SetPositions(new Vector3[] { transform.position + new Vector3(0, 0.8f, 0), hit.point });
+            if (hit.collider.GetComponent<Health>() != null)
             {
                 hit.collider.GetComponent<Health>().ModifyHealth((int)damage * -1);
+                Rigidbody collRB = hit.collider.GetComponent<Rigidbody>();
+                if (collRB != null)
+                {
+                    EnemyCubeController enemyCubeController = hit.collider.gameObject.GetComponent<EnemyCubeController>();
+                    if (enemyCubeController != null)
+                    {
+                        enemyCubeController.KnockedUp();
+                    }
+                    collRB.AddForce(hit.normal * hitForce, ForceMode.Impulse);
+                    //collRB.AddExplosionForce(hitForce, transform.position, sphereCollider.radius * transform.localScale.x, upForce, ForceMode.Impulse);
+
+                }
             }
         }
         else
         {
-            lr.SetPositions(new Vector3[] { transform.position, Vector3.Scale(new Vector3(1, 0, 1), (destination - transform.position).normalized) * 100 });
+            lr.SetPositions(new Vector3[] { transform.position + offset, Vector3.Scale(new Vector3(1, 1, 1), (destination - transform.position).normalized) * 100 });
         }
 
         ////lr.SetPositions(new Vector3[] {transform.position, destination});
-        
+
         Invoke("DestroySelf", timeToLive);
     }
     private void DestroySelf()

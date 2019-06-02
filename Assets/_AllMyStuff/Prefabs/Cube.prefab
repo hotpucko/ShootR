@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 236200296243318772}
   - component: {fileID: 236200296243318778}
   - component: {fileID: 236200296243318773}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 236200296636188010}
   - component: {fileID: 236200296636188009}
   - component: {fileID: 236200296636188008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 236200297118755221}
   - component: {fileID: 236200297118755220}
   - component: {fileID: 236200297118755226}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 236200297677643265}
   - component: {fileID: 236200297677643264}
   - component: {fileID: 236200297677643267}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

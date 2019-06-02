@@ -40,7 +40,6 @@ public class AbilityBaseTriggerable
     public virtual void UpdateCooldowns()
     {
         cooldownComplete = (Time.time > nextReadyTime);
-        Debug.Log(nextReadyTime - Time.time);
         cooldownTimeLeft = nextReadyTime - Time.time;
         if (cooldownComplete && !prevCooldownComplete)
         {
