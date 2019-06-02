@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_AllMyStuff\Scripts\Level\MainMenu.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\AbilityBaseScriptableObject.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\Attributes.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scriptable Objects\Scripts\ForceFieldAbilityScriptableObject.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Scripts\PublicMethods.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Singleton\AbilityDataSingleton.cs" />
+    <Compile Include="Assets\_AllMyStuff\Scripts\Singleton\LevelManagerSingleton.cs" />
     <Compile Include="Assets\_AllMyStuff\Scripts\Singleton\Singleton.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/InetTest/Documents/ShootR/ShootR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

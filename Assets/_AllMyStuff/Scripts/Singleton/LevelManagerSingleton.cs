@@ -45,6 +45,14 @@ public class LevelManagerSingleton : Singleton<LevelManagerSingleton>
                 break;
             case SpawnState.WAITUSERINPUT:
                 Debug.Log("state = waituserinput");
+                if(nextWave > waves)
+                {
+                    infoText.text = "Congratulations! you beat all the waves!";
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        SceneManager.LoadScene(0);
+
+                    break;
+                }
                 infoText.text = "Press Spacebar to start wave " + nextWave;
                 if (Input.GetKeyDown(KeyCode.Space))
                     state = SpawnState.SPAWNING;
