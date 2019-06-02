@@ -28,7 +28,7 @@ public class Laser : MonoBehaviour
 
     private void OnAwake()
     {
-        Vector3 offset = new Vector3(0, 0.8f, 0);
+        Vector3 offset = new Vector3(0.5f, 0.8f, 0);
         if (Physics.Raycast(new Ray(transform.position + offset, (destination - transform.position)), out RaycastHit hit, 10, hitMask))
         {
             lr.SetPositions(new Vector3[] { transform.position + new Vector3(0, 0.8f, 0), hit.point });

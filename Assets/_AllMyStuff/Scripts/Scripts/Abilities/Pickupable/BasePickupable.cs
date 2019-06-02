@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class BasePickupable : MonoBehaviour
 {
     public AbilityBaseTriggerable abilityTriggerable;
     enum abilitiesEnum { ForceFieldTriggerable, LaserTriggerable }
     [SerializeField] abilitiesEnum ability;
+    [SerializeField] Text AbilityNameText;
 
     private void Awake()
     {
@@ -16,6 +15,7 @@ public class BasePickupable : MonoBehaviour
             case abilitiesEnum.ForceFieldTriggerable:
                 abilityTriggerable = new ForceFieldTriggerable();
                 abilityTriggerable = (ForceFieldTriggerable)AbilityDataSingleton.Instance.SetDefaultValues(abilityTriggerable);
+                
                 break;
             case abilitiesEnum.LaserTriggerable:
                 abilityTriggerable = new LaserTriggerable();
@@ -24,6 +24,7 @@ public class BasePickupable : MonoBehaviour
             default:
                 break;
         }
+        AbilityNameText.text = abilityTriggerable.Name;
         //abilityTriggerable = (Type.GetType(ability.ToString()))Activator.CreateInstance(Type.GetType(ability.ToString()));
         //abilityTriggerable = (AbilityBaseTriggerable)AbilityDataSingleton.Instance.SetDefaultValues(abilityTriggerable);
     }
